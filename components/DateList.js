@@ -5,6 +5,8 @@ import {
   FlatList,
   StyleSheet,
   Text,
+  Button,
+  Alert,
 } from "react-native";
 import Constants from "expo-constants";
 import coreService from "../services/core.service";
@@ -59,6 +61,16 @@ export default function DateList() {
 
   let flatListRef;
 
+  const selectToday = () => {
+    flatListRef.scrollToIndex({
+      index: scrollToToday,
+      viewPosition: 0.5,
+      
+    });
+  };
+
+  const todayDateLabel = coreService.getTodayLabel();
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
@@ -72,6 +84,7 @@ export default function DateList() {
         keyExtractor={(item) => item.toString()}
         extraData={selected}
       />
+      <Button title={todayDateLabel} onPress={() => selectToday()} />
     </SafeAreaView>
   );
 }
@@ -81,7 +94,7 @@ const styles = StyleSheet.create({
     marginTop: Constants.statusBarHeight,
   },
   item: {
-    backgroundColor: "#f9c2ff",
+    backgroundColor: "#ffb6b6",
     padding: 20,
     marginHorizontal: 10,
     marginVertical: 6,

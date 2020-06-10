@@ -5,6 +5,28 @@ const coreService = {
     const totalDays = new Date(year, month, 0).getDate();
     return Array.from({ length: totalDays }, (v, k) => k + 1);
   },
+  getTodayLabel: () => {
+    return `${new Date().getDate()} ${coreService.getMonthLabel(
+      new Date().getMonth()
+    )} ${new Date().getFullYear()}`;
+  },
+  getMonthLabel: (month) => {
+    const monthLabelList = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    return monthLabelList[month];
+  },
   list: () => {
     return [
       { id: 1, title: "New note 1", date: "06-10-2020", category: "Todo" },
