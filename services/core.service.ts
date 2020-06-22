@@ -1,5 +1,5 @@
 const coreService = {
-  getMonthDates: (year, month) => {
+  getMonthDates: (year: number, month: number) => {
     if (!Number.isInteger(month) || !Number.isInteger(year)) return [];
     if (month < 0 || month > 11) return [];
     const totalDays = new Date(year, month, 0).getDate();
@@ -10,7 +10,7 @@ const coreService = {
       new Date().getMonth()
     )} ${new Date().getFullYear()}`;
   },
-  getMonthLabel: (month) => {
+  getMonthLabel: (month: number) => {
     const monthLabelList = [
       "Jan",
       "Feb",

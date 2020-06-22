@@ -65,7 +65,6 @@ export default function DateList() {
     flatListRef.scrollToIndex({
       index: scrollToToday,
       viewPosition: 0.5,
-      
     });
   };
 
@@ -76,11 +75,22 @@ export default function DateList() {
       <FlatList
         horizontal={true}
         data={list}
-        index
+
         ref={(ref) => {
           flatListRef = ref;
         }}
-        renderItem={({ item }) => <Text style={styles.item}>{item}</Text>}
+        renderItem={
+          ({ item }) => (
+            <Item
+              id={item}
+              title={item}
+              key={item.toString()}
+              selected={selected}
+              onSelect={setSelected}
+            />
+          )
+          // <Text style={styles.item}>{item}</Text>
+        }
         keyExtractor={(item) => item.toString()}
         extraData={selected}
       />
@@ -94,7 +104,7 @@ const styles = StyleSheet.create({
     marginTop: Constants.statusBarHeight,
   },
   item: {
-    backgroundColor: "#ffb6b6",
+    backgroundColor: "#393e46",
     padding: 20,
     marginHorizontal: 10,
     marginVertical: 6,
