@@ -7,6 +7,9 @@ import {
   SectionList,
 } from "react-native";
 import Constants from "expo-constants";
+import { useSelector } from "react-redux";
+import { getName } from "../store";
+import { IAppState } from "../models";
 
 const styles = StyleSheet.create({
   container: {
@@ -65,8 +68,11 @@ const Item = ({ title }) => (
 );
 
 export default function TaskList() {
+
+  const name = useSelector((state: IAppState) => getName(state));
   return (
     <SafeAreaView style={styles.container}>
+      <Text>{name}</Text>
       <SectionList
         sections={DATA}
         keyExtractor={(item, index) => item + index}
