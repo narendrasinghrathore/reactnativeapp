@@ -3,7 +3,7 @@ import { ADD_TODO } from "../actions/todos.actions.types";
 import { ITodoState } from "../../models";
 const initialState: ITodoState = {
   list: [],
-  name: "Todo List Test",
+  name: "Todo List",
 };
 
 const todos = (state = initialState, action: any) => {

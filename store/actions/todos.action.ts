@@ -14,3 +14,24 @@ export const addTodo = (content: ITodo) => ({
     content,
   },
 });
+
+// Async action
+// export const SearchMusic = (term: string) => {
+//   return (disptach: any) => {
+//     disptach(requestMusicSearch(term));
+//     return http.request(
+//       {
+//         method: "GET",
+//         url: `${apiUrl}${term}`,
+//       },
+//       (response: any) => {
+//         const { resultCount, results } = response.data;
+//         const data = { resultCount, results };
+//         disptach(requestMusicSearchSuccess(data));
+//       },
+//       (reject: any) => {
+//         disptach(requestMusicSearchFail(reject));
+//       }
+//     );
+//   };
+// };

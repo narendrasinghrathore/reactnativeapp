@@ -1,3 +1,5 @@
+import { StyleSheet } from "react-native";
+
 const coreService = {
   getMonthDates: (year: number, month: number) => {
     if (!Number.isInteger(month) || !Number.isInteger(year)) return [];
@@ -37,4 +39,26 @@ const coreService = {
   },
 };
 
+const styles = StyleSheet.create({
+  button: {
+    alignContent: "center",
+    margin: 10,
+    borderRadius: 6,
+    height: 100,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    // borderStyle: "solid",
+    // borderColor: "red",
+    // borderWidth: 20,
+    backgroundColor: "white",
+    shadowColor: "black",
+    shadowOpacity: 0.15,
+    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 0 },
+  },
+});
+
 export default coreService;
+
+export { styles };
